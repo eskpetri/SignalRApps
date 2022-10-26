@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppClient.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="StartAndExpand">
+            <Button x:Name="ConnectServer" Text="Connect to Server" SemanticProperties.Hint="Connect to SignalR server" Clicked="OnConnectServer" HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
+            <HorizontalStackLayout>
+                <Entry x:Name="messageInput" MinimumWidthRequest="200" Text="Enter your message" />
+                <Button x:Name="sendMessage" IsEnabled="False" Clicked="sendMessage_Click" MinimumWidthRequest="25" Text="Send Message" />
+            </HorizontalStackLayout>
+            <ScrollView VerticalScrollBarVisibility="Default">
+                <ListView x:Name="messages" HorizontalScrollBarVisibility="Always" ItemsSource="{Binding ChatMessages}"  SelectionMode="None">
+                    <!-- SelectionMode="None" Ei valintaa listasta pelkkä luettava lista  -->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Message}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </VerticalStackLayout> 
+    </ScrollView>
+
+</ContentPage>
