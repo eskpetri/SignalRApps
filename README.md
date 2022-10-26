@@ -15,5 +15,5 @@ https://developer.android.com/studio/command-line/adb <-- install Android Debug 
 
 ## .MAUI
 
-Still some certificate problem persists. java.security.cert.CertPathValidatorException:...
+Still some certificate problem persists. <br/> java.security.cert.CertPathValidatorException: Trust anchor for certification path not found.<br/>
 Chechking it out tomorrow. MAUI took so much time. Many basic stuff is done totally differently and I didn't found easier way to do it. 
