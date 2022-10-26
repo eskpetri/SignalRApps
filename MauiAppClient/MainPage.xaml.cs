@@ -73,7 +73,7 @@ public partial class MainPage : ContentPage
         }
         catch (Exception ex)
         {
-            messageInput.Text = ex.Message;
+            chatmessages.Add(new ChatMessage() { Message = ex.Message });
         }
     }
     private async void OnConnectServer(object sender, EventArgs e)
