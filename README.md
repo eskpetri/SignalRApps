@@ -10,7 +10,7 @@ To use Android device on developement in Visual Studio you need to set up phone 
 https://learn.microsoft.com/en-us/xamarin/android/get-started/installation/set-up-device-for-development
 
 To access localhost via cable ie USB debugging you have to run adb command to gain access. <br/>
-adb reverse tcp:7181 tcp:7181
+adb reverse tcp:7181 tcp:7181 <br/>
 https://developer.android.com/studio/command-line/adb <-- install Android Debug Bridge
 
 ## .MAUI
