@@ -1,7 +1,7 @@
 # SignalRApps
 
-Testing SignalR to gain good access to deliver data to same app family on multible devices. .MAUI xaml differs a lot from WPF xaml. 
-Host: localhost:7181
+Testing SignalR to gain good access to deliver data to same app family on multible devices. .MAUI xaml differs a lot from WPF xaml. <br/>
+Host: localhost:7181 <br/>
 Maybe I deliver this to heroku cloud service and add crypting of messages without saving them. Then you should have quite secure chat. :)
 
 ## Android real device
