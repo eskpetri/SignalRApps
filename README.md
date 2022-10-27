@@ -23,7 +23,7 @@ https://stackoverflow.com/questions/6825226/trust-anchor-not-found-for-android-s
 https://developer.android.com/training/articles/security-ssl <-- Read this at least twice! <br/>
 https://developer.android.com/training/articles/security-config <br/>
 Blaah easy only two steps 1.1 and 1.2 ... What I am going to do today??? <br/>
-Actually Self Signed Certificate was already installed so spending time creating one went one kind of training. Problem was Android device and emulator not accepting Self Signed Certificate. There were plenty of work arounds but one that can be applied to SignarR was scarser. Little tweets told that .NET7 these kind of problems are solved. Progress is that emulator works but real device don't. That should be handled if digging deeper in code. At least knowledge on certificates and Android phones increased <br/>
+Actually Self Signed Certificate was already installed so spending time creating one went one kind of training. Problem was Android device and emulator not accepting Self Signed Certificate. There were plenty of work arounds but one that can be applied to SignalR was scarser. Little tweets told that .NET7 these kind of problems are solved. Progress is that emulator works but real device don't. That should be handled if digging deeper in code. At least knowledge on certificates and Android phones increased <br/>
 https://github.com/dotnet/maui/discussions/8131
 
 ## OpenSSL to test Certificate and Create one
