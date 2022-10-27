@@ -18,7 +18,8 @@ Still some certificate problem persists. <br/> java.security.cert.CertPathValida
 Google gived few solution to try 1.1 Self Signed Certificate (That might be cause also so...) <br/>
 https://stackoverflow.com/questions/6825226/trust-anchor-not-found-for-android-ssl-connection <br/>
 1.2 You can manipulate Android devices to not use certificate at all or trust self signed ones. This seems legit. <br/>
-https://developer.android.com/training/articles/security-config<br/>
+https://developer.android.com/training/articles/security-ssl <br/>
+https://developer.android.com/training/articles/security-config <br/>
 
 ## OpenSSL to test Certificate and Create one
 This requires many steps and lots of time. It's not just download and use. Need to add compilers etc... <br/>
