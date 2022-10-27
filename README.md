@@ -13,8 +13,10 @@ https://learn.microsoft.com/en-us/xamarin/android/get-started/installation/set-u
 
 To access localhost via cable ie USB debugging you have to run adb command to gain access. <br/>
 adb reverse tcp:7181 tcp:7181 <br/>
-https://developer.android.com/studio/command-line/adb <-- install Android Debug Bridge
-Still some certificate problem persists. <br/> java.security.cert.CertPathValidatorException: Trust anchor for certification path not found.<br/>Chechking it out tomorrow. 
+https://developer.android.com/studio/command-line/adb <-- install Android Debug Bridge <br/> 
+Still some certificate problem persists. <br/> 
+java.security.cert.CertPathValidatorException: Trust anchor for certification path not found.<br/>
+Chechking it out tomorrow. 
 Google gived few solution to try 1.1 Self Signed Certificate to Blazor server (That might be cause also so... Maybe) <br/>
 https://stackoverflow.com/questions/6825226/trust-anchor-not-found-for-android-ssl-connection <br/>
 1.2 You can configure your application's Network Security Config(in .MAUI project->Android part), in this case to have your application trust your own self-signed certificates. <br/>
