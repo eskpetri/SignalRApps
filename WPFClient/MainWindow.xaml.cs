@@ -7,7 +7,8 @@ namespace WPFClient;
 
 public partial class MainWindow : Window
 {
-    HubConnection connection;
+    HubConnection connection;           //SignalR chathub connection
+    HubConnection counterConnection;    //SignalR counterhub connection Does not have messages for reconnection
 
     public MainWindow()
     {
@@ -15,6 +16,11 @@ public partial class MainWindow : Window
 
         connection = new HubConnectionBuilder()
             .WithUrl("https://localhost:7181/chathub")
+            .WithAutomaticReconnect()
+            .Build();
+
+        counterConnection = new HubConnectionBuilder()
+            .WithUrl("https://localhost:7181/counterhub")
             .WithAutomaticReconnect()
             .Build();
 
@@ -85,6 +91,32 @@ public partial class MainWindow : Window
         {
             await connection.InvokeAsync("SendMessage",
                 "WPF Client", messageInput.Text);
+        }
+        catch (Exception ex)
+        {
+            messages.Items.Add(ex.Message);
+        }
+    }
+
+    private async void openCounter_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            await counterConnection.StartAsync();
+            openCounter.IsEnabled = false;
+            incrementCounter.IsEnabled = true;
+        }
+        catch (Exception ex)
+        {
+            messages.Items.Add(ex.Message);
+        }
+    }
+
+    private async void incrementCounter_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            await counterConnection.InvokeAsync("AddToTotal", "WPF Client", 1);
         }
         catch (Exception ex)
         {
