@@ -78,6 +78,7 @@ public partial class MainPage : ContentPage
     }
     private async void OnConnectServer(object sender, EventArgs e)
     {
+        //System.Net.ServicePointManager.ServerCertificateValidationCallback = (senderX, certificate, chain, sslPolicyErrors) => { return true; };//Don't check cert
         connection.On<string, string>("ReceiveMessage", (user, message) =>
         {
             this.Dispatcher.DispatchAsync(() =>
@@ -98,6 +99,7 @@ public partial class MainPage : ContentPage
         catch (Exception ex)
         {
             chatmessages.Add(new ChatMessage() { Message = ex.Message });
+            Console.WriteLine(ex.Message);
         }
     }
 }

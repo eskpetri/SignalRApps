@@ -33,6 +33,7 @@ app.UseRouting();
 
 app.MapBlazorHub();                 //SignalR
 app.MapHub<ChatHub>("/chathub");    //SignalR   Client side address
+app.MapHub<CounterHub>("/counterhub");  //SignarR listening address
 app.MapFallbackToPage("/_Host");    
 
 app.Run();

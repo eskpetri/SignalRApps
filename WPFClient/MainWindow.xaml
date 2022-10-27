@@ -15,8 +15,10 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Button x:Name="openConnection" Grid.Row="0" HorizontalAlignment="Center"
-                Padding="20 10" Margin="20" Click="openConnection_Click">
+        <Button x:Name="openCounter" Content="Open Counter Connection" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" Padding="10 5" Click="openCounter_Click"/>
+        <Button x:Name="incrementCounter" Content="Increment Counter" IsEnabled="False" HorizontalAlignment="Left" Margin="280,0,0,0" VerticalAlignment="Center" Padding="10 5" Click="incrementCounter_Click"/>
+        <Button x:Name="openConnection" Grid.Row="0" HorizontalAlignment="Left"
+                Padding="20 10" Margin="495,20,0,20" Click="openConnection_Click" RenderTransformOrigin="1.733,0.567">
             Open Connection
         </Button>
 
@@ -32,6 +34,7 @@
             <ListBox x:Name="messages" HorizontalAlignment="Stretch"
                      Padding="20 10" BorderThickness="0" />
         </ScrollViewer>
-        
+
+
     </Grid>
 </Window>
