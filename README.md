@@ -24,6 +24,8 @@ This requires many steps and lots of time. It's not just download and use. Need 
 https://github.com/openssl/openssl <br/>
 but after that you can run "openssl s_client -debug -connect localhost:443" in terminal to get more information on certificates. 
 
+I used Windows build - Notes for Windows platforms -> Native builds using Visual C++. Required installing via Visual Studio installer Visual C++, Strawberry perl and Nasm from their homepages. 
+
 For noobs Google Environmental Variables adding. Type "echo %PATH%" in terminal to chech current Environment Variable of Path. Note that you need to restart terminal to get changes in effect (in case you made changes and terminal isn't "working" ie find perl or nasm commands. 
 
 ## .MAUI
