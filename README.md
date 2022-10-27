@@ -15,9 +15,10 @@ To access localhost via cable ie USB debugging you have to run adb command to ga
 adb reverse tcp:7181 tcp:7181 <br/>
 https://developer.android.com/studio/command-line/adb <-- install Android Debug Bridge
 Still some certificate problem persists. <br/> java.security.cert.CertPathValidatorException: Trust anchor for certification path not found.<br/>Chechking it out tomorrow. 
-Google gived few solution to try 1. Self Signed Certificate (That might be cause also so...)
+Google gived few solution to try 1.1 Self Signed Certificate (That might be cause also so...)
 https://stackoverflow.com/questions/6825226/trust-anchor-not-found-for-android-ssl-connection
-
+1.2 You can manipulate Android devices to not use certificate at all or trust self signed ones. This seems legit. 
+https://developer.android.com/training/articles/security-config
 
 ## OpenSSL to test Certificate and Create one
 This requires many steps and lots of time. It's not just download and use. Need to add compilers etc... <br/>
