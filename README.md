@@ -18,7 +18,7 @@ Still some certificate problem persists. <br/> java.security.cert.CertPathValida
 Google gived few solution to try 1.1 Self Signed Certificate to Blazor server (That might be cause also so... Maybe) <br/>
 https://stackoverflow.com/questions/6825226/trust-anchor-not-found-for-android-ssl-connection <br/>
 1.2 You can configure your application's Network Security Config(in .MAUI project->Android part), in this case to have your application trust your own self-signed certificates. <br/>
-https://developer.android.com/training/articles/security-ssl <br/>
+https://developer.android.com/training/articles/security-ssl <-- Read this at least twice! <br/>
 https://developer.android.com/training/articles/security-config <br/>
 Blaah easy only two steps 1.1 and 1.2 ... What I am going to do today???
 
