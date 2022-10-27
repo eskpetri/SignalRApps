@@ -1,6 +1,6 @@
 # SignalRApps
 
-Decided to use there README.md files as a diary/notes for myself and they maybe usefull to others too making the same walk. Also trying to commend code as detailed as possible at least give idea or guidance.
+Decided to use these README.md files as a diary/notes for myself and they maybe usefull to others too making the same walk. Also trying to commend code as detailed as possible at least give idea or guidance.
 
 Testing SignalR to gain good access to deliver data to same app family on multible devices. .MAUI xaml differs a lot from WPF xaml. <br/>
 Host: localhost:7181 <br/>
