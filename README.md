@@ -26,7 +26,7 @@ Blaah easy only two steps 1.1 and 1.2 ... What I am going to do today??? <br/>
 Actually Self Signed Certificate was already installed so spending time creating one went one kind of training. Problem was Android device and emulator not accepting Self Signed Certificate. There were plenty of work arounds but one that can be applied to SignalR was scarser. Little tweets told that .NET7 these kind of problems are solved. Progress is that emulator works but real device don't. That should be handled if digging deeper in code. At least knowledge on certificates and Android phones increased <br/>
 https://github.com/dotnet/maui/discussions/8131<br/>
 adevice branch has real phone and android emulator working but code looks horrible and real device needs command as next stated. <br/>
-adb reverse tcp:7181 tcp:7181 <br/>
+adb reverse tcp:7181 tcp:7181 or adb -s 63fa0277 reverse tcp:7181 tcp:7181 where strange string is your device (adb devices) <br/>
 Noticed from the comments of above post that you can configure android device to trust self signed certificate. 
 
 ## OpenSSL to test Certificate and Create one
