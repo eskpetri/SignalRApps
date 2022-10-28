@@ -1,7 +1,7 @@
 ﻿using System.Net.Security;
 
 namespace MauiAppClient.Helpers;
-
+//This is only for debug. bypasses Android emulator and Android device ssl certificate verify test
 public class DevHttpsConnectionHelper
 {
     public DevHttpsConnectionHelper(int sslPort)
@@ -10,14 +10,19 @@ public class DevHttpsConnectionHelper
         DevServerRootUrl = FormattableString.Invariant($"https://{DevServerName}:{SslPort}");
         LazyHttpClient = new Lazy<HttpClient>(() => new HttpClient(GetPlatformMessageHandler()));
     }
-
+    public DevHttpsConnectionHelper(int sslPort, string hostname)
+    {
+        SslPort = sslPort;
+        DevServerRootUrl = FormattableString.Invariant($"https://{hostname}:{SslPort}");
+        LazyHttpClient = new Lazy<HttpClient>(() => new HttpClient(GetPlatformMessageHandler()));
+    }
     public int SslPort { get; }
 
     public string DevServerName =>
 #if WINDOWS
         "localhost";
 #elif ANDROID
-        "10.0.2.2";
+        "10.0.2.2";         //Here check if virtual or actual device and make it better
 #else
         throw new PlatformNotSupportedException("Only Windows and Android currently supported.");
 #endif
@@ -58,7 +63,7 @@ public class DevHttpsConnectionHelper
             {
                 return
                     Javax.Net.Ssl.HttpsURLConnection.DefaultHostnameVerifier.Verify(hostname, session)
-                    || hostname == "10.0.2.2" && session.PeerPrincipal?.Name == "CN=localhost";
+                    || hostname == "10.0.2.2" && session.PeerPrincipal?.Name == "CN=localhost" || hostname == "127.0.0.1" && session.PeerPrincipal?.Name == "CN=localhost";
             }
         }
     }
