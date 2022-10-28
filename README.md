@@ -25,7 +25,8 @@ https://developer.android.com/training/articles/security-config <br/>
 Blaah easy only two steps 1.1 and 1.2 ... What I am going to do today??? <br/>
 Actually Self Signed Certificate was already installed so spending time creating one went one kind of training. Problem was Android device and emulator not accepting Self Signed Certificate. There were plenty of work arounds but one that can be applied to SignalR was scarser. Little tweets told that .NET7 these kind of problems are solved. Progress is that emulator works but real device don't. That should be handled if digging deeper in code. At least knowledge on certificates and Android phones increased <br/>
 https://github.com/dotnet/maui/discussions/8131<br/>
-adevice branch has real phone and android emulator working but code looks horrible and real device needs command as next stated. adb reverse tcp:7181 tcp:7181 <br/>
+adevice branch has real phone and android emulator working but code looks horrible and real device needs command as next stated. <br/>
+adb reverse tcp:7181 tcp:7181 <br/>
 Noticed from the comments of above post that you can configure android device to trust self signed certificate. 
 
 ## OpenSSL to test Certificate and Create one
@@ -38,6 +39,12 @@ I used Windows build - Notes for Windows platforms -> Native builds using Visual
 
 For noobs Google Environmental Variables adding. Type "echo %PATH%" in terminal to chech current Environment Variable of Path. Note that you need to restart terminal to get changes in effect (in case you made changes and terminal isn't "working" ie find perl or nasm commands. 
 
+## Https in development environment
+Going to Http is not a good option. Better to keep development and production as similar as possible to avoid suprices. 
+https://auth0.com/blog/using-https-in-your-development-environment/
+
 ## .MAUI
 
-MAUI took so much time. Many basic stuff is done totally differently and I didn't found easier way to do it. 
+MAUI took so much time. Many basic stuff is done totally differently and I didn't found easier way to do it.
+OpenSSL and Android certificate problem took the time. More on this in next project.
+Good option is to early test .MAUI Android part in production environment with real device (Small screen Android smallest the consumer of ap has) UI parts particularly. Functionality should be same as in windows app (Windows Machine) and UI layout can be tested by shrinking screen horizontaly. 
