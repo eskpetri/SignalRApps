@@ -18,10 +18,6 @@ public static class MauiProgram
             ? "10.0.2.2" : "localhost")}:7181/"),
             Timeout = TimeSpan.FromSeconds(10)
         });
-        #if ANDROID && DEBUG
-                Platforms.Android.DangerousAndroidMessageHandlerEmitter.Register();
-                Platforms.Android.DangerousTrustProvider.Register();
-        #endif
 
         return builder.Build();
     }

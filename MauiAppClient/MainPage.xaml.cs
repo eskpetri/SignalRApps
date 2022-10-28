@@ -1,13 +1,9 @@
-﻿//using Android.Hardware.Usb;
-using MauiAppClient.Helpers;
-using Microsoft.AspNetCore.SignalR.Client;
+﻿using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Maui.Dispatching;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows;
-using Microsoft.Maui.Devices;
-
 
 namespace MauiAppClient;
 
@@ -24,33 +20,12 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-        bool isVirtual = DeviceInfo.Current.DeviceType switch             //This is only for debug. bypasses Android emulator and Android device ssl certificate verify test
-        {
-            DeviceType.Physical => false,
-            DeviceType.Virtual => true,
-            _ => false
-        };
-        var devSslHelper = new DevHttpsConnectionHelper(sslPort: 7181);
-        if (!isVirtual) { devSslHelper = new DevHttpsConnectionHelper(sslPort: 7181, "127.0.0.1"); }
-        
-
-        //var http = devSslHelper.HttpClient;
-        //var response = await http.GetStringAsync(devSslHelper.DevServerRootUrl + "/chathub");
 
         chatmessages.Add(new ChatMessage() { Message = "Make Connection" });
         messages.ItemsSource = chatmessages;                                    //Eventually "ListBox" working Almost everything goes differently than in WPF lol
 
         connection = new HubConnectionBuilder()
-#if ANDROID                                              //This is only for debug. bypasses Android emulator and Android device ssl certificate verify test
-            .WithUrl(devSslHelper.DevServerRootUrl + "/chathub"
-            , configureHttpConnection: o =>
-            {
-                o.HttpMessageHandlerFactory = m => devSslHelper.GetPlatformMessageHandler();
-            }
-            )
-        #else
             .WithUrl("https://localhost:7181/chathub")
-        #endif
             .WithAutomaticReconnect()
             .Build();
         
