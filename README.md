@@ -31,7 +31,8 @@ Noticed from the comments of above post that you can configure android device to
 ## OpenSSL to test Certificate and Create one
 This requires many steps and lots of time. It's not just download and use. Need to add compilers etc... <br/>
 https://github.com/openssl/openssl <br/>
-but after that you can run "openssl s_client -debug -connect localhost:443" in terminal to get more information on certificates. 
+but after that you can run "openssl s_client -debug -connect localhost:443" in terminal to get more information on certificates. <br/>
+openssl s_client -connect 127.0.0.1:7181 or openssl s_client -debug -connect localhost:7181   <-- run openssl command towards your app port to check certificate in use and if there are any Verification error like self signed certificate.
 
 I used Windows build - Notes for Windows platforms -> Native builds using Visual C++. Required installing via Visual Studio installer Visual C++ (Modify Visual Studio Community 2022 -> select - Desktop development with C++) , Strawberry perl and Nasm from their homepages. 
 
