@@ -50,7 +50,7 @@ OpenSSL and Android certificate problem took the time. More on this in next proj
 Good option is to early test .MAUI Android part in production environment with real device (Small screen Android smallest the consumer of ap has) UI parts particularly. Functionality should be same as in windows app (Windows Machine) and UI layout can be tested by shrinking screen horizontaly. 
 
 ## Heroku deployment
-Deployed to Heroku using https://github.com/jincod/dotnetcore-buildpack#preview buildpack. Needs still Heroku branch to point application away from localhost to Heroku url. Free account downside is no SSL certificate on the house. Have to test how it works (Android part will not work if adevice branch is not in use). <br/><br/>
+Deployed to Heroku using https://github.com/jincod/dotnetcore-buildpack#preview buildpack. Heroku branch to point application away from localhost to Heroku url. Free account downside is no SSL certificate on the house. Have to test how it works (Android part will not work if adevice branch is not in use). HerokuAdevice to make android work <br/><br/>
 
 https://pete-signalr.herokuapp.com/<br/><br/>
 
