@@ -48,3 +48,8 @@ https://auth0.com/blog/using-https-in-your-development-environment/
 MAUI took so much time. Many basic stuff is done totally differently and I didn't found easier way to do it.
 OpenSSL and Android certificate problem took the time. More on this in next project.
 Good option is to early test .MAUI Android part in production environment with real device (Small screen Android smallest the consumer of ap has) UI parts particularly. Functionality should be same as in windows app (Windows Machine) and UI layout can be tested by shrinking screen horizontaly. 
+
+## Heroku deployment
+Deployed to Heroku using https://github.com/jincod/dotnetcore-buildpack#preview buildpack. Needs still Heroku branch to point application away from localhost to Heroku url. Free account downside is no SSL certificate on the house. Have to test how it works. 
+
+https://pete-signalr.herokuapp.com/
