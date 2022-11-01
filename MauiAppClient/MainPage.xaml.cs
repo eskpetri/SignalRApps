@@ -25,7 +25,8 @@ public partial class MainPage : ContentPage
         messages.ItemsSource = chatmessages;                                    //Eventually "ListBox" working Almost everything goes differently than in WPF lol
 
         connection = new HubConnectionBuilder()
-            .WithUrl("https://localhost:7181/chathub")
+            //.WithUrl("https://localhost:7181/chathub")                //Server to string or env variable...
+            .WithUrl("https://pete-signalr.herokuapp.com/chathub")
             .WithAutomaticReconnect()
             .Build();
         
