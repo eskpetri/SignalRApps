@@ -15,12 +15,14 @@ public partial class MainWindow : Window
         InitializeComponent();
 
         connection = new HubConnectionBuilder()
-            .WithUrl("https://localhost:7181/chathub")
+            //.WithUrl("https://localhost:7181/chathub")
+            .WithUrl("https://pete-signalr.herokuapp.com/chathub")
             .WithAutomaticReconnect()
             .Build();
 
         counterConnection = new HubConnectionBuilder()
-            .WithUrl("https://localhost:7181/counterhub")
+            //.WithUrl("https://localhost:7181/counterhub")
+            .WithUrl("https://pete-signalr.herokuapp.com/counterhub")
             .WithAutomaticReconnect()
             .Build();
 

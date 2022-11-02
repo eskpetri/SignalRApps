@@ -31,7 +31,7 @@ public partial class MainPage : ContentPage
             _ => false
         };
         var devSslHelper = new DevHttpsConnectionHelper(sslPort: 7181);
-        if (!isVirtual) { devSslHelper = new DevHttpsConnectionHelper(sslPort: 7181, "127.0.0.1"); }
+        if (!isVirtual) { devSslHelper = new DevHttpsConnectionHelper(sslPort: 7181, "pete-signalr.herokuapp.com"); }
         
 
         //var http = devSslHelper.HttpClient;
@@ -48,9 +48,10 @@ public partial class MainPage : ContentPage
                 o.HttpMessageHandlerFactory = m => devSslHelper.GetPlatformMessageHandler();
             }
             )
-        #else
-            .WithUrl("https://localhost:7181/chathub")
-        #endif
+#else
+            //.WithUrl("https://localhost:7181/chathub")
+            .WithUrl("https://pete-signalr.herokuapp.com/chathub")
+#endif
             .WithAutomaticReconnect()
             .Build();
         
