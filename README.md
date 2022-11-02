@@ -50,10 +50,35 @@ OpenSSL and Android certificate problem took the time. More on this in next proj
 Good option is to early test .MAUI Android part in production environment with real device (Small screen Android smallest the consumer of ap has) UI parts particularly. Functionality should be same as in windows app (Windows Machine) and UI layout can be tested by shrinking screen horizontaly. 
 
 ## Heroku deployment
-Deployed to Heroku using https://github.com/jincod/dotnetcore-buildpack#preview buildpack. Heroku branch to point application away from localhost to Heroku url. Free account downside is no SSL certificate on the house. Have to test how it works (Android part will not work if adevice branch is not in use). HerokuAdevice to make android work <br/><br/>
+Deployed to Heroku using https://github.com/jincod/dotnetcore-buildpack#preview buildpack. Heroku branch to point application away from localhost to Heroku url. Free account downside is no SSL certificate on the house. Have to test how it works (Android part will not work if adevice branch is not in use). HerokuAdevice to make android work. adeviceheroku branch tested and working <br/>Have to chech this later to make Android trust self signed certificate if I notice working solution<br/>
 
 https://pete-signalr.herokuapp.com/<br/><br/>
 
 openssl s_client -debug -connect https://pete-signalr.herokuapp.com/ <br/>
 7956:error:2008F002:BIO routines:BIO_lookup_ex:system lib:crypto/bio/b_addr.c:730:T<br/>
-connect:errno=10109<br/>
+connect:errno=10109<br/><br/>
+Strange that Heroku said that it don't provide certificates to free accounts but maybe it ment your certificates. Easier to pay some for certificate and account than bypassin Android security. Leave it as such to check out new projects<br/>
+[DOTNET] GetPlatformMessageHandler message=Method: POST, RequestUri: 'https://pete-signalr.herokuapp.com/chathub/negotiate?negotiateVersion=1', Version: 1.1, Content: <null>, Headers:<br/>
+[DOTNET] {<br/>
+[DOTNET]   User-Agent: Microsoft<br/>
+[DOTNET]   User-Agent: SignalR/6.0<br/>
+[DOTNET]   User-Agent: (6.0.10+32e8c8cae5b1a4dd752d0a42a6f8a2813f75f173; Unknown OS; .NET; .NET 6.0.10)<br/>
+[DOTNET]   X-Requested-With: XMLHttpRequest<br/>
+[DOTNET] } cert[Subject]<br/>
+[DOTNET]   CN=*.herokuapp.com<br/>
+[DOTNET] 
+[DOTNET] [Issuer]
+[DOTNET]   CN=Amazon, OU=Server CA 1B, O=Amazon, C=US
+[DOTNET] <br/>
+[DOTNET] [Serial Number]
+[DOTNET]   0ECD24954178641F0B62121F0EB3F6C9<br/>
+[DOTNET] [Not Before]
+[DOTNET]   5/2/2022 3:00:00 AM
+[DOTNET] 
+[DOTNET] [Not After]
+[DOTNET]   6/1/2023 2:59:59 AM
+[DOTNET] <br/>
+[DOTNET] [Thumbprint]
+[DOTNET]   1158B1D91F5563DBF0526317826B2AF2E42B7A40
+[DOTNET]  chainSystem.Security.Cryptography.X509Certificates.X509Chain errorsNone
+[DOTNET] AndroidVerifySSL hostname=pete-signalr.herokuapp.com session=System.Func`1[System.String] Peer=CN=*.herokuapp.com<br/>
